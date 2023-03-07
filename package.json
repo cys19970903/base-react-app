@@ -21,5 +21,26 @@
 		"webpack-cli": "^5.0.1",
 		"webpack-dev-server": "^4.11.1",
 		"webpack-merge": "^5.8.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-typescript",
+			[
+				"@babel/preset-env",
+				"@babel/preset-react"
+			]
+		]
 	}
 }
