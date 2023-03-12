@@ -23,6 +23,6 @@
       ]
 		}
 	},
-	"include": ["src/*", "config/*", ".eslintrc.cjs"],
+	"include": ["./src/**/*", "./config/**/*", ".eslintrc.cjs"],
 	"exclude": ["node_modules"]
 }

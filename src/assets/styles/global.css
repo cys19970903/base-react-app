@@ -1,0 +1,58 @@
+@import '/node_modules/antd/dist/reset.css';
+
+a {
+	text-decoration: none;
+	display: block;
+	color: #00a2c9;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/material-icons-font.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Source-KeynoteartHans';
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/source-keynoteartHans-regular.ttf');
+}
+
+.material-icons {
+	font-family: 'Material Icons', serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	color: inherit;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga';
+}
+
+body {
+	font-family: 'Noto Sans SC', sans-serif;
+	font-weight: 400;
+}
+#majorel-app {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #f7f9ff;
+	overflow: auto;
+}

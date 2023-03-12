@@ -20,19 +20,36 @@ module.exports = {
 			},
 			{
         test: /\.less$/,
+        include: /src/,
+        exclude: /\.module\.less$/,
         use: [
           'style-loader',
           'css-loader',
           'less-loader',
         ],
       },
-			{
+      {
+        test: /\.module\.less$/,
+        include: /src/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: { exportLocalsConvention: 'camelCase' },
+            },
+          },
+          'less-loader',
+        ],
+      },
+      {
         test: /\.json$/,
+				exclude: /node_modules/,
         loader: 'json-loader',
         type: 'json',
       },
 			{
-        test: /\.(png|jpg|gif|svg)$/i,
+        test: /\.(png|jpg|gif|svg|webp)$/i,
         type: 'asset/resource',
         parser: {
           dataUrlCondition: {

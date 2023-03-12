@@ -1,5 +1,6 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const common = require('./webpack.common.cjs');
 
 module.exports = require('webpack-merge').merge(common, {
@@ -13,9 +14,11 @@ module.exports = require('webpack-merge').merge(common, {
         terserOptions: {
           compress: {
             drop_console: true,
+            drop_debugger: true,
           },
         },
       }),
+      new CssMinimizerPlugin(),
     ],
     splitChunks: {
       chunks: 'all',
