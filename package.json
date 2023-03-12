@@ -1,21 +1,33 @@
 {
 	"name": "base-react-app",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"license": "MIT",
 	"author": "Spike Chen<cys19970903@gmail.com>",
+	"scripts": {
+		"dev": "webpack serve --config config/webpack.dev.cjs",
+		"build": "webpack --config config/webpack.prod.cjs",
+		"lint": "eslint . --ignore-path .eslintignore",
+		"fix": "eslint --fix . --ignore-path .eslintignore"
+	},
 	"dependencies": {
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.9.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.21.0",
+		"@babel/preset-env": "^7.20.2",
 		"@babel/preset-react": "^7.18.6",
 		"@babel/preset-typescript": "^7.21.0",
 		"@types/node": "^18.14.6",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"babel-loader": "^9.1.2",
+		"clean-webpack-plugin": "^4.0.0",
+		"eslint-config-bebop": "^1.0.2",
+		"html-webpack-plugin": "^5.5.0",
+		"ts-loader": "^9.4.2",
 		"typescript": "^4.9.5",
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
@@ -36,11 +48,13 @@
 	},
 	"babel": {
 		"presets": [
-			"@babel/preset-typescript",
-			[
-				"@babel/preset-env",
-				"@babel/preset-react"
-			]
+			"@babel/preset-env",
+			"@babel/preset-react",
+			"@babel/preset-typescript"
 		]
+	},
+	"engines": {
+		"node": ">=16.0.0",
+		"yarn": ">=1.22.0"
 	}
 }
