@@ -2,12 +2,16 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.cjs');
 
 module.exports = require('webpack-merge').merge(common, {
   mode: 'production',
   devtool: false,
   optimization: {
+    runtimeChunk: {
+      name: 'runtime',
+    },
     minimize: true,
     minimizer: [
       new TerserPlugin({
@@ -45,9 +49,41 @@ module.exports = require('webpack-merge').merge(common, {
       },
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        include: /src/,
+        exclude: /\.module\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader',
+        ],
+      },
+      {
+        test: /\.module\.less$/,
+        include: /src/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: { exportLocalsConvention: 'camelCase' },
+            },
+          },
+          'less-loader',
+        ],
+      },
+    ],
+  },
   plugins: [
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style/[name].[contenthash].css',
+      chunkFilename: 'style/[id].[contenthash].css',
     }),
     new HtmlWebpackExternalsPlugin({
       externals: [

@@ -13,9 +13,22 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts)x?$/,
+				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
-				use: ['babel-loader', 'ts-loader'],
+				use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
 			},
 			{
         test: /\.less$/,
@@ -72,7 +85,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, '../src'),
     },
-		extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	},
 	plugins: [
     new HtmlWebpackPlugin({
