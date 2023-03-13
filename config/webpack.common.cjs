@@ -1,14 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
 	entry: {
-		path: path.resolve(__dirname, '../src/index.tsx'),
+		main: path.resolve(__dirname, '../src/index.tsx'),
 	},
 	output: {
 		path: path.resolve(__dirname, '../dist'),
-		filename: 'js/[name]_[contenthash].js',
+		filename: 'js/[name].[contenthash].js',
 		clean: true,
 	},
 	module: {
@@ -79,6 +78,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
     }),
-		new CleanWebpackPlugin(),
   ],
 };
