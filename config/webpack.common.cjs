@@ -34,7 +34,7 @@ module.exports = {
 			{
 				test: /\.less$/,
 				include: /src/,
-				exclude: /\.module\.less$/,
+				exclude: [/\.module\.less$/, /node_modules/],
 				use: ['style-loader', 'css-loader', 'less-loader'],
 			},
 			{
