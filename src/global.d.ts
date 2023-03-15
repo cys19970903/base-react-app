@@ -4,7 +4,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.svg';
 declare module '*.webp';
-declare module '*.less' {
+declare module '*.scss' {
     const classes: { [key: string]: string };
     export default classes;
 }

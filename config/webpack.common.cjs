@@ -32,23 +32,16 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.less$/,
-				include: /src/,
-				exclude: /\.module\.less$/,
-				use: ['style-loader', 'css-loader', 'less-loader'],
-			},
-			{
-				test: /\.module\.less$/,
-				include: /src/,
+				test: /\.scss$/,
 				use: [
 					'style-loader',
 					{
 						loader: 'css-loader',
 						options: {
-							modules: { exportLocalsConvention: 'camelCase' },
+							modules: true,
 						},
 					},
-					'less-loader',
+					'sass-loader',
 				],
 			},
 			{

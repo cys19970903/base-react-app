@@ -52,23 +52,16 @@ module.exports = require('webpack-merge').merge(common, {
 	module: {
 		rules: [
 			{
-				test: /\.less$/,
-				include: /src/,
-				exclude: /\.module\.less$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
-			},
-			{
-				test: /\.module\.less$/,
-				include: /src/,
+				test: /\.scss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
-							modules: { exportLocalsConvention: 'camelCase' },
+							modules: true,
 						},
 					},
-					'less-loader',
+					'sass-loader',
 				],
 			},
 		],
