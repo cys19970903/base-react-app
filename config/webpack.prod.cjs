@@ -52,7 +52,8 @@ module.exports = require('webpack-merge').merge(common, {
 	module: {
 		rules: [
 			{
-				test: /\.scss$/,
+				test: /\.s[ac]ss$/i,
+				exclude: /node_modules/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
