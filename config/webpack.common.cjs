@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const path = require('path');
 
 module.exports = {
@@ -84,6 +85,7 @@ module.exports = {
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	},
 	plugins: [
+		new WebpackBar(),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
 		}),
