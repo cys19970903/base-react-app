@@ -54,7 +54,7 @@ module.exports = require('webpack-merge').merge(common, {
 			{
 				test: /\.less$/,
 				include: /src/,
-				exclude: /\.module\.less$/,
+				exclude: [/\.module\.less$/, /node_modules/],
 				use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
 			},
 			{
