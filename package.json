@@ -1,0 +1,72 @@
+{
+	"name": "base-react-app",
+	"version": "1.0.1",
+	"main": "index.js",
+	"license": "MIT",
+	"author": "Spike Chen<cys19970903@gmail.com>",
+	"scripts": {
+		"dev": "webpack serve --config config/webpack.dev.cjs",
+		"build": "webpack --config config/webpack.prod.cjs",
+		"lint": "eslint . --ignore-path .eslintignore",
+		"fix": "eslint --fix . --ignore-path .eslintignore"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.9.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.21.0",
+		"@babel/preset-env": "^7.20.2",
+		"@babel/preset-react": "^7.18.6",
+		"@babel/preset-typescript": "^7.21.0",
+		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+		"@types/node": "^18.14.6",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
+		"babel-loader": "^9.1.2",
+		"css-loader": "^6.7.3",
+		"css-minimizer-webpack-plugin": "^4.2.2",
+		"eslint-config-bebop": "^1.0.3",
+		"file-loader": "^6.2.0",
+		"html-webpack-externals-plugin": "^3.8.0",
+		"html-webpack-plugin": "^5.5.0",
+		"less": "^4.1.3",
+		"less-loader": "^11.1.0",
+		"mini-css-extract-plugin": "^2.7.3",
+		"react-refresh": "^0.14.0",
+		"style-loader": "^3.3.1",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.5",
+		"url-loader": "^4.1.1",
+		"webpack": "^5.75.0",
+		"webpack-bundle-analyzer": "^4.8.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1",
+		"webpack-merge": "^5.8.0",
+		"webpackbar": "^5.0.2"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react",
+			"@babel/preset-typescript"
+		]
+	},
+	"engines": {
+		"node": ">=16.0.0",
+		"yarn": ">=1.22.0"
+	}
+}
