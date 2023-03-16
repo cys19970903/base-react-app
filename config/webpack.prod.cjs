@@ -1,7 +1,7 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.cjs');
 
@@ -56,22 +56,28 @@ module.exports = require('webpack-merge').merge(common, {
 			filename: 'style/[name].[contenthash].css',
 			chunkFilename: 'style/[id].[contenthash].css',
 		}),
-		new HtmlWebpackExternalsPlugin({
-			externals: [
+		new HtmlWebpackTagsPlugin({
+			tags: [
 				{
-					module: 'react',
-					entry: 'https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js',
-					global: 'React',
+					path: 'https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js',
+					external: {
+						packageName: 'react',
+						variableName: 'React',
+					},
 				},
 				{
-					module: 'react-dom',
-					entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js',
-					global: 'ReactDOM',
+					path: 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js',
+					external: {
+						packageName: 'react-dom',
+						variableName: 'ReactDOM',
+					},
 				},
 				{
-					module: 'react-router-dom',
-					entry: 'https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.9.0/react-router-dom.production.min.js',
-					global: 'ReactRouterDOM',
+					path: 'https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.9.0/react-router-dom.production.min.js',
+					external: {
+						packageName: 'react-router-dom',
+						variableName: 'ReactRouterDOM',
+					},
 				},
 			],
 		}),

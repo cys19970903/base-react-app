@@ -30,8 +30,8 @@
 		"css-minimizer-webpack-plugin": "^4.2.2",
 		"eslint-config-bebop": "^1.0.3",
 		"file-loader": "^6.2.0",
-		"html-webpack-externals-plugin": "^3.8.0",
 		"html-webpack-plugin": "^5.5.0",
+		"html-webpack-tags-plugin": "^3.0.2",
 		"mini-css-extract-plugin": "^2.7.3",
 		"react-refresh": "^0.14.0",
 		"sass": "^1.59.3",
@@ -67,7 +67,6 @@
 		]
 	},
 	"engines": {
-		"node": ">=16.0.0",
-		"yarn": ">=1.22.0"
+		"node": ">=16.0.0"
 	}
 }
