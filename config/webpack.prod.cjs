@@ -7,7 +7,6 @@ const common = require('./webpack.common.cjs');
 
 module.exports = require('webpack-merge').merge(common, {
 	mode: 'production',
-	devtool: false,
 	optimization: {
 		runtimeChunk: {
 			name: 'runtime',
@@ -48,24 +47,6 @@ module.exports = require('webpack-merge').merge(common, {
 				},
 			},
 		},
-	},
-	module: {
-		rules: [
-			{
-				test: /\.s[ac]ss$/i,
-				exclude: /node_modules/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: 'css-loader',
-						options: {
-							modules: true,
-						},
-					},
-					'sass-loader',
-				],
-			},
-		],
 	},
 	plugins: [
 		new BundleAnalyzerPlugin({
