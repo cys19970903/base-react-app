@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"author": "Spike Chen<cys19970903@gmail.com>",
 	"scripts": {
-		"dev": "webpack serve --config config/webpack.dev.cjs",
-		"build": "webpack --config config/webpack.prod.cjs",
+		"dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.cjs",
+		"build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.cjs",
 		"lint": "eslint . --ignore-path .eslintignore",
 		"fix": "eslint --fix . --ignore-path .eslintignore"
 	},
@@ -25,14 +25,13 @@
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"babel-loader": "^9.1.2",
+		"cross-env": "^7.0.3",
 		"css-loader": "^6.7.3",
 		"css-minimizer-webpack-plugin": "^4.2.2",
 		"eslint-config-bebop": "^1.0.3",
 		"file-loader": "^6.2.0",
-		"html-webpack-externals-plugin": "^3.8.0",
 		"html-webpack-plugin": "^5.5.0",
-		"less": "^4.1.3",
-		"less-loader": "^11.1.0",
+		"html-webpack-tags-plugin": "^3.0.2",
 		"mini-css-extract-plugin": "^2.7.3",
 		"react-refresh": "^0.14.0",
 		"style-loader": "^3.3.1",
@@ -66,7 +65,6 @@
 		]
 	},
 	"engines": {
-		"node": ">=16.0.0",
-		"yarn": ">=1.22.0"
+		"node": ">=16.0.0"
 	}
 }

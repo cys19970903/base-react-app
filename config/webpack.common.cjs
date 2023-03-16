@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
+	devtool: isDev ? 'source-map' : false,
 	entry: {
 		main: path.resolve(__dirname, '../src/index.tsx'),
 	},
@@ -21,6 +24,8 @@ module.exports = {
 						loader: 'babel-loader',
 						options: {
 							cacheDirectory: true,
+							presets: isDev ? ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'] : [],
+							plugins: isDev ? ['react-refresh/babel'] : [],
 						},
 					},
 					{
@@ -32,23 +37,18 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.less$/,
-				include: /src/,
-				exclude: [/\.module\.less$/, /node_modules/],
-				use: ['style-loader', 'css-loader', 'less-loader'],
-			},
-			{
-				test: /\.module\.less$/,
-				include: /src/,
+				test: /\.css$/,
+				exclude: /node_modules/,
 				use: [
-					'style-loader',
+					isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
-							modules: { exportLocalsConvention: 'camelCase' },
+							modules: {
+								exportLocalsConvention: 'camelCase',
+							},
 						},
 					},
-					'less-loader',
 				],
 			},
 			{

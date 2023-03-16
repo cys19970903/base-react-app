@@ -1,6 +1,8 @@
+import style from '@/assets/styles/test.module.css';
+
 function App() {
 	return (
-  <div className="App">
+  <div className={style.testColor}>
     <h3>This is custom React app!</h3>
   </div>
 );
