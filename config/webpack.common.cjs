@@ -37,23 +37,18 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.less$/,
-				include: /src/,
-				exclude: [/\.module\.less$/, /node_modules/],
-				use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
-			},
-			{
-				test: /\.module\.less$/,
-				include: /src/,
+				test: /\.css$/,
+				exclude: /node_modules/,
 				use: [
 					isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
-							modules: { exportLocalsConvention: 'camelCase' },
+							modules: {
+								exportLocalsConvention: 'camelCase',
+							},
 						},
 					},
-					'less-loader',
 				],
 			},
 			{
